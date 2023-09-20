@@ -36,5 +36,15 @@ function updateTime() {
   // sydneyTime.innerHTML = `${sydneyTemporaryTime}<small> ${sydneyTemporaryAmPm}</small>`;
 }
 
+function updateCity(event) {
+  let cityTimeZone = event.target.value;
+  let cityTime = moment.tz(cityTimeZone);
+  let citiesElement = document.querySelector("#cities");
+  citiesElement.innerHTML = "Please eat more chocolate";
+}
+
 updateTime();
 setInterval(updateTime, 1000);
+
+let citiesSelectElement = document.querySelector("#select-city");
+citiesSelectElement.addEventListener("change", updateCity);
