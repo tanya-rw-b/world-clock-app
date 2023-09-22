@@ -36,6 +36,19 @@ function updateTime() {
 
   // let sydneyTime = sydneyElement.querySelector(".time");
   // sydneyTime.innerHTML = `${sydneyTemporaryTime}<small> ${sydneyTemporaryAmPm}</small>`;
+  let viennaElement = document.querySelector("#vienna");
+  if (viennaElement) {
+    let viennaDateElement = viennaElement.querySelector(".date");
+    let viennaTimeElement = viennaElement.querySelector(".time");
+
+    viennaDateElement.innerHTML = moment
+      .tz("Europe/Vienna")
+      .format("MMMM Do YYYY");
+    let viennaTime = moment().tz("Europe/Vienna");
+    viennaTimeElement.innerHTML = viennaTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 
 function updateCity(event) {
